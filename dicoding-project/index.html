@@ -16,7 +16,7 @@
 
   <header>
     <div class="cover">
-      <img src="assets/img/logo-tp.png" alt="Profile Picture" width="350">
+      <img src="assets/img/logo-tp.png" alt="Profile Picture" width="600">
     </div>
     <nav>
       <ul>
@@ -31,36 +31,321 @@
     <div id="content">
       <article id="musicCorner">
         <h2>Music Corner</h2>
-        <p>This is the corner where you will find good music from my preferences. 
-        I listen almost to every genre, but it should has "pop" on its name like Pop-Jazz, Pop-Rock, Pop-Punk, etc. 
+        <p>
+          This is the corner where you will find good music from my preferences. 
+          I listen almost to every genre, but it should have "pop" on its name like Pop-Jazz, Pop-Rock, Pop-Punk, etc.
         </p>
-        <img src="assets/img/maliq.jpeg" alt="Profile Picture">
-        <img src="assets/img/sheila.jpg" alt="Profile Picture">
-        <img src="assets/img/hivi2.jpg" alt="Profile Picture">
-        <img src="assets/img/bernadya.jpeg" alt="Profile Picture">
+        <div id="filterOpt">
+          <label for="filterType">Which filter do you prefer:</label>
+          <select id="filterType">
+            <option value="genres">Genres</option>
+            <option value="vibes">Vibes</option>
+          </select>
+        </div>
+        <div id="genresContainer">
+          <div class="slides">
+            <div class="slide">
+              <img src="assets/img/maliq.jpeg" alt="Pop Punk">
+              <h4>Pop Punk Playlist</h4>
+            </div>
+            <div class="slide">
+              <img src="assets/img/sheila.jpg" alt="Pop Jazz">
+              <h4>Pop Jazz Playlist</h4>
+            </div>
+            <div class="slide">
+              <img src="assets/img/hivi2.jpg" alt="Pop Rock">
+              <h4>Pop Rock Playlist</h4>
+            </div>
+            <div class="slide">
+              <img src="assets/img/bernadya.jpeg" alt="Pop Ori">
+              <h4>Pop Playlist</h4>
+            </div>
+            <div class="slide">
+              <img src="assets/img/maliq.jpeg" alt="Pop Ballad">
+              <h4>Pop Ballad Playlist</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vibes Recommendation -->
+        <div id="vibesContainer" style="display: none;">
+          <div class="vibeSlides">
+            <div class="vibeSlide">
+              <img src="assets/img/maliq.jpeg" alt="Energetic Vibe">
+              <h4>Energetic Playlist</h4>
+            </div>
+            <div class="vibeSlide">
+              <img src="assets/img/bernadya.jpeg" alt="Chill Vibe">
+              <h4>Chill Playlist</h4>
+            </div>
+            <div class="vibeSlide">
+              <img src="assets/img/sheila.jpg" alt="Romantic Vibe">
+              <h4>Romantic Playlist</h4>
+            </div>
+            <div class="vibeSlide">
+              <img src="assets/img/hivi2.jpg" alt="horror Vibe">
+              <h4>Horror Playlist</h4>
+            </div>
+            <div class="vibeSlide">
+              <img src="assets/img/hivi2.jpg" alt="Sad Vibe">
+              <h4>Sad Playlist</h4>
+            </div>
+          </div>
+        </div>
+        
+        <button id="prev">❮</button>
+        <button id="next">❯</button>
       </article>
       <article id="movieZone">
         <h2>Movies Zone</h2>
         <p>This is the zone where you will find good movies from my preferences. 
         My favorite genre is romantic-comedy that has fun & daylight tone vibes.</p>
-        <img src="assets/img/instantfamily.jpg" alt="Profile Picture">
-        <img src="assets/img/perahukertas.jpg" alt="Profile Picture">
-        <img src="assets/img/onyourweddingday.jpg" alt="Profile Picture">
-        <img src="assets/img/marmut.jpg" alt="Profile Picture">
+        <div id="filterOpt">
+          <label for="mvfilterType">Which filter do you prefer:</label>
+          <select id="mvfilterType">
+            <option value="genres">Genres</option>
+            <option value="vibes">Vibes</option>
+          </select>
+        </div>
+        <div id="movieGenre">
+          <div class="slidesmovie">
+            <div class="slidemovie">
+              <img src="assets/img/instantfamily.jpg" alt="romcom">
+              <h4>Romantic Comedy</h4>
+            </div>
+            <div class="slidemovie">
+              <img src="assets/img/perahukertas.jpg" alt="musical">
+              <h4>Musical</h4>
+            </div>
+            <div class="slidemovie">
+              <img src="assets/img/onyourweddingday.jpg" alt="horror">
+              <h4>Horror</h4>
+            </div>
+            <div class="slidemovie">
+              <img src="assets/img/marmut.jpg" alt="thriller">
+              <h4>Thriller</h4>
+            </div>
+            
+            <div class="slidemovie">
+              <img src="assets/img/marmut.jpg" alt="crime">
+              <h4>Crime</h4>
+            </div>
+          </div>
+        </div>
+        <div id="movieVibe"  style="display: none;">
+          <div class="movibeSlides">
+            <div class="movibeSlide">
+              <img src="assets/img/instantfamily.jpg" alt="summer">
+              <h4>Summer</h4>
+            </div>
+            <div class="movibeSlide">
+              <img src="assets/img/perahukertas.jpg" alt="winter">
+              <h4>Winter</h4>
+            </div>
+            <div class="movibeSlide">
+              <img src="assets/img/onyourweddingday.jpg" alt="sad">
+              <h4>Sad</h4>
+            </div>
+            <div class="movibeSlide">
+              <img src="assets/img/marmut.jpg" alt="happy">
+              <h4>Happy</h4>
+            </div>
+            <div class="movibeSlide">
+              <img src="assets/img/marmut.jpg" alt="blue">
+              <h4>Blue</h4>
+            </div>
+          </div>
+        </div>
+        <button id="prevMovie">❮</button>
+        <button id="nextMovie">❯</button>
       </article>
     </div>
 
     <aside>
       <h2>About Me</h2>
       <img src="assets/img/profile.jpeg" alt="Profile Picture" width="150">
-      <p>Hello! I'm Fachrul Rozi, a web developer and technology enthusiast.
-      Welcome to my site!</p>
+      <p>Hi there! I'm Fachrul Rozi, a web developer and a passionate fan of great music and movies. Here’s a bit about my favorites:</p>
+      
+      <!-- Music Preferences -->
+      <h3>My Music Preferences</h3>
+      <p>🎶 I'm all about genres that bring the "pop" into the mix: 
+         Pop Jazz, Pop Rock, and even Pop Punk! My playlists are the perfect background for coding or relaxing.</p>
+      <p>Current favorite: *"Maliq & D'Essentials - Heaven"* 🎵</p>
+      
+      <!-- Movie Preferences -->
+      <h3>My Movie Preferences</h3>
+      <p>🎥 Romantic comedies with a daylight vibe? Count me in! I also enjoy musicals and feel-good movies that inspire creativity and joy.</p>
+      <p>Recent favorite: *"Instant Family"* ❤️</p>
+      
+      <!-- Social Media Promotion -->
+      <h3>Let's Connect</h3>
+      <p>Follow me on social media to stay updated with my music and movie picks, and for occasional tech tips:</p>
+      <ul>
+        <li><a href="https://instagram.com/yourusername" target="_blank">📸 Instagram</a></li>
+        <li><a href="https://twitter.com/yourusername" target="_blank">🐦 Twitter</a></li>
+        <li><a href="https://www.linkedin.com/in/yourusername" target="_blank">💼 LinkedIn</a></li>
+      </ul>
     </aside>
+    
   </main>
 
   <footer>
     <p>&copy; 2024 My Awesome Website. All rights reserved.</p>
   </footer>
 
+  <!-- Floating Card Modal -->
+  <div id="recommendationModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2 id="modalTitle">Recommendation</h2>
+      <p id="modalContent">Here are your recommendations!</p>
+    </div>
+  </div>
+
 </body>
 </html>
+
+
+<script>
+  // Function to initialize a slider
+  const initSlider = (sliderContainerClass, slideClass, prevButtonId, nextButtonId, visibleSlides) => {
+    const slides = document.querySelector(`.${sliderContainerClass}`);
+    const slide = document.querySelectorAll(`.${slideClass}`);
+    const prevButton = document.getElementById(prevButtonId);
+    const nextButton = document.getElementById(nextButtonId);
+
+    let currentIndex = 0;
+
+    // Update slider position based on the current index
+    const updateSliderPosition = () => {
+      const slideWidth = slide[0].offsetWidth + 10; // Card width + gap (10px)
+      slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    };
+
+    // Go to the previous set of slides
+    prevButton.addEventListener('click', () => {
+      if (currentIndex === 0) {
+        // If at the start, loop to the last set of slides
+        currentIndex = slide.length - visibleSlides;
+      } else {
+        currentIndex = Math.max(currentIndex - visibleSlides, 0);
+      }
+      updateSliderPosition();
+    });
+
+    // Go to the next set of slides
+    nextButton.addEventListener('click', () => {
+      if (currentIndex + visibleSlides >= slide.length) {
+        // If at the end, loop back to the first slide
+        currentIndex = 0;
+      } else {
+        currentIndex = Math.min(currentIndex + visibleSlides, slide.length - visibleSlides);
+      }
+      updateSliderPosition();
+    });
+
+    // Initialize position
+    updateSliderPosition();
+  };
+
+  // Initialize sliders for both sections
+  initSlider('slides', 'slide', 'prev', 'next', 4); // Music Corner
+  initSlider('slidesmovie', 'slidemovie', 'prevMovie', 'nextMovie', 4); // Movie Zone
+  initSlider('vibeSlides', 'vibeSlide', 'prev', 'next', 4); // Music Corner
+  initSlider('movibeSlides', 'movibeSlide', 'prevMovie', 'nextMovie', 4); // Music Corner
+  
+</script>
+
+<script>
+  // Select all cards and the modal elements
+  const allCards = document.querySelectorAll('.slide, .slidemovie, .vibeSlide, .movibeSlide'); // Adjust to target both music and movie cards
+  const modal = document.getElementById('recommendationModal');
+  const closeModal = document.getElementById('closeModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalContent = document.getElementById('modalContent');
+
+  // Card data for recommendations
+  const cardRecommendations = {
+    'pop punk': { title: 'Pop Punk Playlist', content: 'Try listening to Green Day, Blink-182, and Paramore!' },
+    'pop jazz': { title: 'Pop Jazz Playlist', content: 'Try listening to Norah Jones, Diana Krall, and Maliq & D’Essentials!' },
+    'pop rock': { title: 'Pop Rock Playlist', content: 'Try listening to Imagine Dragons, Coldplay, and OneRepublic!' },
+    'pop ori': { title: 'Pop Playlist', content: 'Try listening to Taylor Swift, Dua Lipa, and Olivia Rodrigo!' },
+    'pop ballad': { title: 'Pop Playlist', content: 'Try listening to Taylor Swift, Dua Lipa, and Olivia Rodrigo!' },
+    'energetic vibe': { title: 'Energetic Vibe', content: 'Try listening to Green Day, Blink-182, and Paramore!' },
+    'chill vibe': { title: 'Chill Vibe Playlist', content: 'Try listening to Norah Jones, Diana Krall, and Maliq & D’Essentials!' },
+    'romantic vibe': { title: 'Romantic Vibe Playlist', content: 'Try listening to Imagine Dragons, Coldplay, and OneRepublic!' },
+    'horror vibe': { title: 'Horror Vibe Playlist', content: 'Try listening to Taylor Swift, Dua Lipa, and Olivia Rodrigo!' },
+    'sad vibe': { title: 'Sad Vibe Playlist', content: 'Try listening to Taylor Swift, Dua Lipa, and Olivia Rodrigo!' },
+    'romcom': { title: 'Romantic Comedy', content: 'Recommended: The Notebook, Love Actually, and Crazy Rich Asians!' },
+    'musical': { title: 'Musical', content: 'Recommended: Interstellar, Inception, and Gravity!' },
+    'horror': { title: 'Horror', content: 'Recommended: Interstellar, Inception, and Gravity!' },
+    'thriller': { title: 'Thriller', content: 'Recommended: Interstellar, Inception, and Gravity!' },
+    'crime': { title: 'Crime', content: 'Recommended: Interstellar, Inception, and Gravity!' },
+    'summer': { title: 'Summer', content: 'Recommended: The Notebook, Love Actually, and Crazy Rich Asians!' },
+    'winter': { title: 'Winter', content: 'Recommended: Interstellar, Inception, and Gravity!' },
+    'sad': { title: 'Sad', content: 'Recommended: Interstellar, Inception, and Gravity!' },
+    'blue': { title: 'Blue', content: 'Recommended: Interstellar, Inception, and Gravity!' },
+    'happy': { title: 'Happy', content: 'Recommended: Interstellar, Inception, and Gravity!' },
+  };
+
+  // Open modal with specific recommendations
+  allCards.forEach(card => {
+    const image = card.querySelector('img'); // Select the image within the card
+    if (image) {
+      image.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent the event from bubbling up
+        const altText = image.alt.toLowerCase(); // Use the `alt` attribute as the key
+        const recommendation = cardRecommendations[altText];
+        if (recommendation) {
+          modalTitle.textContent = recommendation.title;
+          modalContent.textContent = recommendation.content;
+          modal.style.display = 'block'; // Show the modal
+        }
+      });
+    }
+  });
+  
+  // Close modal when the close button is clicked
+  closeModal.addEventListener('click', () => {
+    modal.style.display = 'none'; // Hide the modal
+  });
+
+  // Close modal when clicking outside the modal content
+  window.addEventListener('click', event => {
+    if (event.target === modal) {
+      modal.style.display = 'none'; // Hide the modal
+    }
+  });
+
+</script>
+
+<script>
+  const filterType = document.getElementById('filterType');
+  const genresContainer = document.getElementById('genresContainer');
+  const vibesContainer = document.getElementById('vibesContainer');
+  const movibesContainer = document.getElementById('movieVibe');
+  const mogenresContainer = document.getElementById('movieGenre');
+
+  // Switch between genres and vibes
+  filterType.addEventListener('change', () => {
+    if (filterType.value === 'genres') {
+      genresContainer.style.display = 'flex';
+      vibesContainer.style.display = 'none';
+    } else if (filterType.value === 'vibes') {
+      genresContainer.style.display = 'none';
+      vibesContainer.style.display = 'flex';
+    }
+  });
+
+  mvfilterType.addEventListener('change', () => {
+    if (mvfilterType.value === 'genres') {
+      mogenresContainer.style.display = 'flex';
+      movibesContainer.style.display = 'none';
+    } else if (mvfilterType.value === 'vibes') {
+      mogenresContainer.style.display = 'none';
+      movibesContainer.style.display = 'flex';
+    }
+  });
+
+
+</script>

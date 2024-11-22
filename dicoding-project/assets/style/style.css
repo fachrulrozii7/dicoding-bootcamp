@@ -13,16 +13,47 @@ body {
 }
 
 /* Header styling */
-header .cover {
-  background-color: #628fa4; /* Medium Blue */
-  color: #fcfaee; /* Light Cream */
-  padding: 1rem;
+/* header .cover {
+  background-image: url('../img/whiplash.jpeg');
+  background-size: cover;  /*Make the image cover the entire container 
+  background-position: center; /* Center the image 
+  background-color: #628fa4; /*Medium Blue
+  color: #fcfaee; /* Light Cream 
+  padding: 5rem;
   text-align: center;
+  opacity: 50%;
+} */
+
+header .cover {
+  background-image: url('../img/500dos.jpeg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fcfaee;
+  text-align: center;
+  padding: 11rem;
 }
+
+header .cover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(98, 143, 164, 0.25); /* Blue with 50% opacity */
+  z-index: 1;
+}
+
+header .cover img {
+  position: relative;
+  z-index: 2;
+}
+
 
 nav {
   background-color: #506692;
-  padding: 5px;
+  padding: 10px;
   position: sticky;
   top: 0;
 }
@@ -83,7 +114,7 @@ article {
   padding: 1rem;
   background-color: #fcfaee; /* Light Cream */
   border: 1px solid #507687; /* Medium Blue for borders */
-  border-radius: 5px;
+  border-radius: 50px;
 }
 
 article h2 {
@@ -94,20 +125,59 @@ article h2 {
 aside {
   flex: 1;
   background-color: #fcfaee; /* Light Cream */
-  padding: 1rem;
-  border: 1px solid #507687; /* Medium Blue for borders */
-  border-radius: 5px;
+  padding: 1.5rem; /* Increased padding for more breathing space */
+  border: 1px solid #507687; /* Slightly thicker border for emphasis */
+  border-radius: 8px; /* Softer corners for a modern look */
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 aside h2 {
   color: #384b70; /* Dark Blue */
+  font-size: 1.5rem; /* Slightly larger for better readability */
+  margin-bottom: 1rem;
 }
 
 aside img {
-  border-radius: 50%;
-  margin-bottom: 0.5rem;
-  /* border: 3px solid #507687; Red border for profile picture */
+  border-radius: 50%; /* Circular profile picture */
+  margin-bottom: 1rem; /* Increased spacing below image */
+  border: 4px solid #507687; /* Blue border for a framed effect */
+  width: 120px; /* Ensures consistent size */
+  height: 120px; /* Ensures consistent size */
+  object-fit: cover; /* Maintains aspect ratio within the circle */
+}
+
+aside p {
+  color: #5f718d; /* Muted blue for text readability */
+  font-size: 0.9rem; /* Smaller font for a balanced layout */
+  line-height: 1.5; /* Improved text spacing for readability */
+  margin-bottom: 1.2rem;
+}
+
+aside h3 {
+  color: #507687; /* Medium Blue */
+  font-size: 1.2rem; /* Distinct section headings */
+  margin-bottom: 0.8rem;
+}
+
+aside ul {
+  list-style: none; /* Remove default bullets */
+  padding: 0; /* Remove padding for cleaner alignment */
+}
+
+aside ul li {
+  margin-bottom: 0.5rem; /* Spacing between list items */
+}
+
+aside ul li a {
+  text-decoration: none; /* Remove underline */
+  color: #507687; /* Match the overall blue tone */
+  font-weight: bold; /* Emphasize links */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+aside ul li a:hover {
+  color: #384b70; /* Darker blue on hover */
 }
 
 /* Footer styling */
@@ -121,3 +191,133 @@ footer {
 }
 
 
+
+
+/* Music Corner container */
+#musicCorner, #movieZone {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #fcfaee; /* Light Cream */
+  padding: 1rem;
+  border: 1px solid #507687; /* Medium Blue */
+  border-radius: 5px;
+  position: relative; /* For button positioning */
+  overflow: hidden; /* Ensure slider stays within bounds */
+  box-sizing: border-box; /* Include padding and border in width/height */
+  padding-right: 50px;
+}
+
+/* Slides container */
+.slides, .slidesmovie, .vibeSlides, .movibeSlides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 10px;
+  /* overflow: hidden; */
+}
+
+/* Individual slide */
+.slide, .slidemovie, .vibeSlide, .movibeSlide {
+  flex: 0 0 25%;
+  text-align: center;
+}
+
+/* Slide images */
+.slide img, .slidemovie img, .vibeSlide img, .movibeSlide img {
+  height: 200px;
+  width: 180px;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.slide img:hover, .slidemovie img:hover, .vibeSlide img:hover, .movibeSlide img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation buttons */
+#prev, #next, #prevMovie, #nextMovie {
+  position: absolute;
+  top: 60%; /* Align vertically */
+  transform: translateY(-50%); /* Adjust alignment */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  padding-bottom: 15px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 80%;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+#prev, #prevMovie {
+  left: 1rem;
+}
+
+#next, #nextMovie {
+  right: 1rem;
+}
+
+#prev:hover, #next:hover, #prevMovie:hover, #nextMovie:hover {
+  background-color: #b8001f;
+}
+
+
+/* Modal Container */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fcfaee;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #507687;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #b8001f;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+#filterOpt {
+  margin-bottom: 1em;
+}
+
+#filterType, #mvfilterType {
+  padding: 0.5em;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
