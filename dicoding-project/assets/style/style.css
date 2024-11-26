@@ -25,7 +25,7 @@ body {
 } */
 
 header .cover {
-  background-image: url('../img/500dos.jpeg');
+  background-image: url('../img/500dos.png');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -228,6 +228,8 @@ footer {
   width: 180px;
   border-radius: 5px;
   transition: transform 0.3s ease;
+  position: relative; /* Ensure they are not overlapped by other elements */
+  z-index: 1;
 }
 
 .slide img:hover, .slidemovie img:hover, .vibeSlide img:hover, .movibeSlide img:hover {
@@ -269,19 +271,18 @@ footer {
 .modal {
   display: none; /* Hidden by default */
   position: fixed;
-  z-index: 1000;
+  z-index: 9999;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
   background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
 }
 
 /* Modal Content */
 .modal-content {
   background-color: #fcfaee;
-  margin: 15% auto;
+  margin: auto;
   padding: 20px;
   border: 1px solid #507687;
   border-radius: 10px;
@@ -289,7 +290,9 @@ footer {
   max-width: 600px;
   text-align: center;
   position: relative;
+  box-sizing: border-box;
 }
+
 
 /* Close Button */
 .close {
@@ -320,4 +323,53 @@ footer {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  background-color: #fcfaee;
+}
+
+.cardContainer {
+  display: flex; /* Align cards horizontally */
+  gap: 1rem; /* Space between cards */
+  flex-wrap: wrap; /* Allow wrapping if too many cards */
+  margin: 130px;
+}
+
+.recommendationCard {
+  flex: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 40px ;
+  background: #f9f9f9;
+  border-radius: 8px;
+  
+}
+
+.recommendationCard img {
+  width: 150px;
+  height: 170px;
+  /* height: auto; */
+  border-radius: 5px;
+}
+
+.songList {
+  margin-top: 0.5rem;
+  padding-left: 0; /* Remove default list indentation */
+  list-style-type: none; /* Remove bullet points */
+  display: flex;
+  flex-direction: column; /* Arrange songs vertically */
+  gap: 0.3rem; /* Add spacing between items */
+}
+
+.songList li {
+  font-size: 0.9rem;
+  color: #333; /* Darker text for better readability */
+  background-color: #f4f4f4; /* Light background for each song */
+  padding: 0.5rem;
+  border-radius: 0.3rem; /* Rounded corners */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.songList li:hover {
+  background-color: #e0e0e0; /* Highlight on hover */
+  cursor: pointer; /* Change cursor to pointer */
 }

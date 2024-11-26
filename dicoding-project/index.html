@@ -45,23 +45,23 @@
         <div id="genresContainer">
           <div class="slides">
             <div class="slide">
-              <img src="assets/img/maliq.jpeg" alt="Pop Punk">
+              <img src="assets/img/poppunk.jpg" alt="Pop Punk">
               <h4>Pop Punk Playlist</h4>
             </div>
             <div class="slide">
-              <img src="assets/img/sheila.jpg" alt="Pop Jazz">
+              <img src="assets/img/popjazz.jpg" alt="Pop Jazz">
               <h4>Pop Jazz Playlist</h4>
             </div>
             <div class="slide">
-              <img src="assets/img/hivi2.jpg" alt="Pop Rock">
+              <img src="assets/img/poprock.jpg" alt="Pop Rock">
               <h4>Pop Rock Playlist</h4>
             </div>
             <div class="slide">
-              <img src="assets/img/bernadya.jpeg" alt="Pop Ori">
-              <h4>Pop Playlist</h4>
+              <img src="assets/img/kpop.jpg" alt="K Pop">
+              <h4>K-Pop Playlist</h4>
             </div>
             <div class="slide">
-              <img src="assets/img/maliq.jpeg" alt="Pop Ballad">
+              <img src="assets/img/ballad.jpg" alt="Pop Ballad">
               <h4>Pop Ballad Playlist</h4>
             </div>
           </div>
@@ -71,24 +71,24 @@
         <div id="vibesContainer" style="display: none;">
           <div class="vibeSlides">
             <div class="vibeSlide">
-              <img src="assets/img/maliq.jpeg" alt="Energetic Vibe">
-              <h4>Energetic Playlist</h4>
+              <img src="assets/img/sunny.jpg" alt="Sunny Day">
+              <h4>Sunny Playlist</h4>
             </div>
             <div class="vibeSlide">
-              <img src="assets/img/bernadya.jpeg" alt="Chill Vibe">
-              <h4>Chill Playlist</h4>
+              <img src="assets/img/rainy.jpg" alt="Rainy Day">
+              <h4>Rainy Playlist</h4>
             </div>
             <div class="vibeSlide">
-              <img src="assets/img/sheila.jpg" alt="Romantic Vibe">
-              <h4>Romantic Playlist</h4>
+              <img src="assets/img/happy.jpg" alt="Happy">
+              <h4>Happy Playlist</h4>
             </div>
             <div class="vibeSlide">
-              <img src="assets/img/hivi2.jpg" alt="horror Vibe">
-              <h4>Horror Playlist</h4>
+              <img src="assets/img/midnight.jpg" alt="Midnight">
+              <h4>Midnight Playlist</h4>
             </div>
             <div class="vibeSlide">
-              <img src="assets/img/hivi2.jpg" alt="Sad Vibe">
-              <h4>Sad Playlist</h4>
+              <img src="assets/img/heartbroken.jpg" alt="Heartbroken">
+              <h4>Heartbroken Playlist</h4>
             </div>
           </div>
         </div>
@@ -110,49 +110,49 @@
         <div id="movieGenre">
           <div class="slidesmovie">
             <div class="slidemovie">
-              <img src="assets/img/instantfamily.jpg" alt="romcom">
+              <img src="assets/img/romcom.jpg" alt="romcom">
               <h4>Romantic Comedy</h4>
             </div>
             <div class="slidemovie">
-              <img src="assets/img/perahukertas.jpg" alt="musical">
+              <img src="assets/img/musical.jpg" alt="musical">
               <h4>Musical</h4>
             </div>
             <div class="slidemovie">
-              <img src="assets/img/onyourweddingday.jpg" alt="horror">
+              <img src="assets/img/horror.jpg" alt="horror">
               <h4>Horror</h4>
             </div>
             <div class="slidemovie">
-              <img src="assets/img/marmut.jpg" alt="thriller">
+              <img src="assets/img/thriller.jpg" alt="thriller">
               <h4>Thriller</h4>
             </div>
             
             <div class="slidemovie">
-              <img src="assets/img/marmut.jpg" alt="crime">
-              <h4>Crime</h4>
+              <img src="assets/img/kmovie.jpg" alt="drama">
+              <h4>Drama</h4>
             </div>
           </div>
         </div>
         <div id="movieVibe"  style="display: none;">
           <div class="movibeSlides">
             <div class="movibeSlide">
-              <img src="assets/img/instantfamily.jpg" alt="summer">
+              <img src="assets/img/summer.jpg" alt="summer">
               <h4>Summer</h4>
             </div>
             <div class="movibeSlide">
-              <img src="assets/img/perahukertas.jpg" alt="winter">
-              <h4>Winter</h4>
+              <img src="assets/img/christmas.jpg" alt="christmas">
+              <h4>Christmas</h4>
             </div>
             <div class="movibeSlide">
-              <img src="assets/img/onyourweddingday.jpg" alt="sad">
-              <h4>Sad</h4>
+              <img src="assets/img/school.jpg" alt="school">
+              <h4>School</h4>
             </div>
             <div class="movibeSlide">
-              <img src="assets/img/marmut.jpg" alt="happy">
-              <h4>Happy</h4>
+              <img src="assets/img/nostalgic.jpg" alt="nostalgic">
+              <h4>Nostalgic</h4>
             </div>
             <div class="movibeSlide">
-              <img src="assets/img/marmut.jpg" alt="blue">
-              <h4>Blue</h4>
+              <img src="assets/img/heartwarming.jpg" alt="Heartwarming">
+              <h4>Heartwarming</h4>
             </div>
           </div>
         </div>
@@ -193,12 +193,11 @@
     <p>&copy; 2024 My Awesome Website. All rights reserved.</p>
   </footer>
 
-  <!-- Floating Card Modal -->
   <div id="recommendationModal" class="modal">
-    <div class="modal-content">
-      <span id="closeModal" class="close">&times;</span>
-      <h2 id="modalTitle">Recommendation</h2>
-      <p id="modalContent">Here are your recommendations!</p>
+    <div class="modalContent">
+      <!-- <span id="closeModal">&times;</span> -->
+      <h2 id="modalTitle"></h2>
+      <div id="modalCards" class="recommendationCards"></div> <!-- Cards container -->
     </div>
   </div>
 
@@ -258,6 +257,7 @@
 
 <script>
   // Select all cards and the modal elements
+  /*
   const allCards = document.querySelectorAll('.slide, .slidemovie, .vibeSlide, .movibeSlide'); // Adjust to target both music and movie cards
   const modal = document.getElementById('recommendationModal');
   const closeModal = document.getElementById('closeModal');
@@ -316,6 +316,240 @@
       modal.style.display = 'none'; // Hide the modal
     }
   });
+*/
+</script>
+
+<script>
+  const allImages = document.querySelectorAll('.slide img, .slidemovie img, .vibeSlide img, .movibeSlide img');
+
+  // Modal and its elements
+  const modal = document.getElementById('recommendationModal');
+  const closeModal = document.getElementById('closeModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalCards = document.getElementById('modalCards');
+
+  const cardRecommendations = {
+  'pop punk': { 
+    title: ' ', 
+    items: [
+      { img: 'assets/img/hivi2.jpg', name: 'Green Day', description: 'American punk rock band.',songs: ['Boulevard of Broken Dreams', 'American Idiot', 'Wake Me Up When September Ends']},
+      { img: 'assets/img/hivi2.jpg', name: 'Paramore', description: 'Indonesian punk rock band.',songs: ['Boulevard of Broken Dreams', 'Holiday', 'Wake Me Up When September Ends']},
+      { img: 'assets/img/hivi2.jpg', name: 'My Chemical Romance', description: 'American punk rock band.',songs: ['Boulevard of Broken Dreams', 'Holiday', 'Wake Me Up When September Ends']},
+    ]
+  },
+  'pop jazz': { 
+    title: '', 
+    items: [
+      { img: 'assets/img/mocca.jpg', name: 'Mocca', description: 'Smooth jazz vocals.',songs: ['I Love You Anyway', 'This Conversation', 'Swing it Bob!']},
+      { img: 'assets/img/abdulcoffe.jpeg', name: 'Abdul & the Coffee Theory', description: 'Soulful piano jazz.',songs: ['Amazing You', 'Aku Suka Caramu', 'Ku Cinta Kau Lebih Dari Kemarin']},
+      { img: 'assets/img/maliq.jpeg', name: 'Maliq & D’Essentials', description: 'Indonesian pop jazz.',songs: ['Dia','Setapak Sriwedari', 'Bagaimana Kutahu']},
+    ]
+  },
+  
+  'k pop': { 
+    title: '', 
+    items: [
+      { img: 'assets/img/blackpink.jpg', name: 'Blackpink', description: 'Smooth jazz vocals.',songs: ['Crazy Over You', 'How You Like That', 'Forever Young']},
+      { img: 'assets/img/newjeans.jpg', name: 'New Jeans', description: 'Soulful piano jazz.',songs: ['Ditto', 'Super Shy', 'OMG']},
+      { img: 'assets/img/iu.jpeg', name: 'IU', description: 'Indonesian pop jazz.',songs: ['Heart', 'Knees', 'My Old Storiy']},
+    ]
+  },
+
+  'pop ballad': { 
+    title: '', 
+    items: [
+      { img: 'assets/img/norah.jpg', name: 'Bernadya', description: 'Smooth jazz vocals.',songs: ['Masa Sepi', 'Kata Mereka Ini Berlebihan', 'Kita Kubur Sampai Mati']},
+      { img: 'assets/img/diana.jpg', name: 'NIKI', description: 'Soulful piano jazz.',songs: ['Autumn', 'Oceans & Engines', 'On The Drive Home']},
+      { img: 'assets/img/maliq.jpg', name: 'Taylor Swift', description: 'Indonesian pop jazz.',songs: ['Dear John', 'This is Me Trying', 'All Too Well']},
+    ]
+  },
+  
+  'pop rock': { 
+    title: '', 
+    items: [
+      { img: 'assets/img/sheila.jpg', name: 'Sheila on 7', description: 'Smooth jazz vocals.',songs: ['Pede', 'Seberapa Pantas', 'Trimakasih Bijaksana']},
+      { img: 'assets/img/dewa19.jpeg', name: 'Dewa 19', description: 'Soulful piano jazz.',songs: ['Arjuna', 'Pangeran Cinta', 'Cukup Siti Nurbaya']},
+      { img: 'assets/img/bonjovi.jpeg', name: 'Bon Jovi', description: 'Indonesian pop jazz.',songs: ['Always', 'Bed of Roses', 'Thank You for Loving Me']},
+    ]
+  },
+
+  'sunny day': { 
+    title: '', 
+    items: [
+      { img: 'assets/img/hivi2.jpg', name: 'Hivi !', description: 'Smooth jazz vocals.',songs: ['Bahagia', 'Sama Sama Tahu', 'Apa Adanya']},
+      { img: 'assets/img/ecoutez.jpeg', name: 'Ecoutez', description: 'Soulful piano jazz.',songs: ['Kasih', 'Katakanlah', 'Hadirkan Cinta']},
+      { img: 'assets/img/ardhito.jpg', name: 'Ardhito Pramono', description: 'Indonesian pop jazz.',songs: ['Bitterlove', 'Fine Today', 'Perlahan Menghilang']},
+    ]
+  },
+
+  'rainy day': { 
+    title: '', 
+    items: [
+      { img: 'assets/img/overtunes.jpg', name: 'The Overtunes', description: 'Smooth jazz vocals.',songs: ['Cinta', 'Takkan Kemana', 'I Still Love You']},
+      { img: 'assets/img/raisa.jpeg', name: 'Raisa', description: 'Soulful piano jazz.',songs: ['LDR','Percayalah', 'Usai Disini']},
+      { img: 'assets/img/bruno.jpg', name: 'Bruno Major', description: 'Indonesian pop jazz.',songs: ['Nothing', 'The Most Beautiful Thing', 'To Let a Good Thing Die']},
+    ]
+  },
+
+  'midnight': { 
+    title: '', 
+    items: [
+      { img: 'assets/img/niki.jpeg', name: 'NIKI', description: 'Smooth jazz vocals.',songs: ['Auntumn', 'On The Drive Home', 'Did You Like Her in The Morning']},
+      { img: 'assets/img/taylor.jpeg', name: 'Taylor Swift', description: 'Soulful piano jazz.',songs: ['Fortnight', 'Illicit Affairs', 'My Tears Ricochet']},
+      { img: 'assets/img/coldplay.jpeg', name: 'Coldplay', description: 'Indonesian pop jazz.',songs: ['Everglow', 'Paradise', 'In My Place']},
+    ]
+  },
+
+  'heartbroken': { 
+    title: '', 
+    items: [
+      { img: 'assets/img/bernadya2.jpeg', name: 'Bernadya', description: 'Smooth jazz vocals.',songs: ['Satu Bulan', 'Kini Mereka Tahu', 'Sialnya Hidup Harus Tetap Berjalan']},
+      { img: 'assets/img/isyana.jpeg', name: 'Isyana Sarasvati', description: 'Soulful piano jazz.',songs: ['Masih Berharap', 'Luruh', 'Mimpi']},
+      { img: 'assets/img/glenn.jpeg', name: 'Glenn Fredly', description: 'Indonesian pop jazz.',songs: ['Terserah', 'Akhir Cerita Cinta', 'Sedih Tak Berujung']},
+    ]
+  },
+
+  'happy': { 
+    title: '', 
+    items: [
+      { img: 'assets/img/jkt48.webp', name: 'JKT 48', description: 'Smooth jazz vocals.',songs: ['Honest Man', 'Fortune Cookie', 'Only Today']},
+      { img: 'assets/img/ran.jpg', name: 'RAN', description: 'Soulful piano jazz.',songs: ['Ratu Lebah', 'Pandangan Pertama', 'Jadi Gila']},
+      { img: 'assets/img/tulus.jpeg', name: 'Tulus', description: 'Indonesian pop jazz.',songs: ['Labirin', 'Teman Hidup', '1000 Tahun Lamanya']},
+    ]
+  },
+
+  'romcom': { 
+    title: ' ', 
+    items: [
+      { img: 'assets/img/radio.webp', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Radio Galau FM', 'Manusia Setengah Salmon', 'Marmut Merah Jambu', 'Koala Kumal']},
+      { img: 'assets/img/little.jpg', name: 'West', description: 'Soulful piano jazz.',songs: ['Juno', 'Little Manhattan', 'Flipped', '13 Going on 30']},
+      { img: 'assets/img/weddingday.jpeg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Sweet & Sour', 'On Your Wedding Day', 'My Sassy Girl','Love Reset']},
+    ]
+  },
+  
+  'musical': { 
+    title: ' ', 
+    items: [
+      { img: 'assets/img/cintadisma.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Ada Cinta di SMA', 'Yowis Ben', 'Petualangan Sherina']},
+      { img: 'assets/img/camprock.jpeg', name: 'West', description: 'Soulful piano jazz.',songs: ['Enchanted', 'Camp Rock', 'Into the Woods','High School Musical']},
+      { img: 'assets/img/paparotti.jpg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['My Paparotti', 'The Box', 'Life is Beautiful']},
+    ]
+  },
+
+  'horror': { 
+    title: ' ', 
+    items: [
+      { img: 'assets/img/pengabi.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Pengabdi Setan', 'Nenek Gayung', 'Bangku Kosong']},
+      { img: 'assets/img/conjuring.jpg', name: 'West', description: 'Soulful piano jazz.',songs: ['The Conjuring', 'Annabelle', 'Insidious']},
+      { img: 'assets/img/busan.jpeg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Train to Busan', 'The Call', 'Death Bell']},
+    ]
+  },
+
+  'thriller': { 
+    title: ' ', 
+    items: [
+      { img: 'assets/img/rumah dara.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Marlina Si Pembunuh Empat Babak', 'Rumah Dara', 'Perempuan Tanah Jahanam']},
+      { img: 'assets/img/getout.webp', name: 'West', description: 'Soulful piano jazz.',songs: ['Joker', 'Get Out', 'Dont Breathe']},
+      { img: 'assets/img/parasite.jpg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Silenced', 'Parasite', 'Unlocked']},
+    ]
+  },
+
+  'drama': { 
+    title: ' ', 
+    items: [
+      { img: 'assets/img/perahukertas2.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Dilan', 'Perahu Kertas', 'Dear Nathan', 'Cek Toko Sebelah']},
+      { img: 'assets/img/gifted.jpeg', name: 'West', description: 'Soulful piano jazz.',songs: ['Gifted', 'Elvis', 'A Man Called Otto']},
+      { img: 'assets/img/kimjiyoung.jpeg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Love Forecast', 'Kim Ji Young Born 1982', 'Pawn', 'Tune in For Love']},
+    ]
+  },
+
+  'summer': { 
+    title: ' ', 
+    items: [
+      { img: 'assets/img/norah.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Filosofi Kopi', 'Surat Dari Praha','Rentang Kisah']},
+      { img: 'assets/img/diana.jpg', name: 'West', description: 'Soulful piano jazz.',songs: ['', 'The Intern', 'Clueless', 'Yes Day']},
+      { img: 'assets/img/maliq.jpg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Ditto', ' Architecture 101', 'Extreme Job','Miracle: Letter for President']},
+    ]
+  },
+
+  'christmas': { 
+    title: ' ', 
+    items: [
+      { img: 'assets/img/norah.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Pede', 'Seberapa Pantas', 'Trimakasih Bijaksana']},
+      { img: 'assets/img/diana.jpg', name: 'West', description: 'Soulful piano jazz.',songs: ['Arjuna', 'Pangeran Cinta', 'Cukup Siti Nurbaya']},
+      { img: 'assets/img/maliq.jpg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Always', 'Bed of Roses', 'Thank You for Loving Me']},
+    ]
+  },
+
+  'school': { 
+    title: ' ', 
+    items: [
+      { img: 'assets/img/norah.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Remember When', 'Catatan Akhir Sekolah', 'Galih & Ratna']},
+      { img: 'assets/img/diana.jpg', name: 'West', description: 'Soulful piano jazz.',songs: ['Mean Girl', 'Metal Lords', 'Diary of a Wimpy Kid', 'School of Rock']},
+      { img: 'assets/img/maliq.jpg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Always', '20th Century Girl', 'Thank You for Loving Me']},
+    ]
+  },
+
+  'nostalgic': { 
+    title: ' ', 
+    items: [
+      { img: 'assets/img/norah.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Eiffel Im in Love', 'Ada Apa Dengan Cinta', '30 Hari Mencari Cinta']},
+      { img: 'assets/img/diana.jpg', name: 'West', description: 'Soulful piano jazz.',songs: ['Uptown Girls', 'The Holiday', 'What a Girl Wants']},
+      { img: 'assets/img/maliq.jpg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Il Mare', 'My Little Bride', 'Sunny']},
+    ]
+  },
+
+  'heartwarming': { 
+    title: ' ', 
+    items: [
+      { img: 'assets/img/norah.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['5 cm', 'Cek Toko Sebelah 2', 'Laskar Pelangi']},
+      { img: 'assets/img/diana.jpg', name: 'West', description: 'Soulful piano jazz.',songs: ['Instant Family', 'Pangeran Cinta', 'Cukup Siti Nurbaya']},
+      { img: 'assets/img/maliq.jpg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Be With You', 'New Year Blues', 'Tune in For Love']},
+    ]
+  },
+
+};
+
+// Open modal and display recommendations
+allImages.forEach(image => {
+  image.addEventListener('click', () => {
+    console.log('Image clicked:', this.alt); // Log the clicked image alt attribute
+    const altText = image.alt.toLowerCase(); // Use alt attribute of the image directly
+    const recommendation = cardRecommendations[altText];
+
+    if (recommendation) {
+      modalTitle.textContent = recommendation.title;
+      modalCards.innerHTML = ''; // Clear previous content
+
+      // Create a single shared container for all recommendation cards
+      const cardContainer = document.createElement('div');
+      cardContainer.classList.add('cardContainer'); // Shared container class
+
+      recommendation.items.forEach(item => {
+        const card = document.createElement('div');
+        card.classList.add('recommendationCard');
+        card.innerHTML = `
+          <img src="${item.img}" alt="${item.name}">
+          <h4>${item.name}</h4>
+          <ul class="songList">
+            ${item.songs.map(song => `<li>${song}</li>`).join('')} <!-- Dynamically add song list -->
+          </ul>
+        `;
+        cardContainer.appendChild(card); // Append each card to the shared container
+      });
+
+      modalCards.appendChild(cardContainer); // Add shared container to modal
+      modal.style.display = 'block'; // Show modal
+    }
+  });
+});
+
+window.addEventListener('click', event => {
+  if (event.target === modal) {
+    modal.style.display = 'none'; // Hide the modal when clicking outside of it
+  }
+});
+
 
 </script>
 
