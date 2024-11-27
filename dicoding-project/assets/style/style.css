@@ -5,24 +5,53 @@
   box-sizing: border-box;
 }
 
+/* Styling sections */
+.section {
+  padding: 1.5rem;
+
+  background-color: #fcfaee; /* Light Cream */;
+  border-radius: 8px;
+  display: none; /* Initially hidden */
+  
+  border: 1px solid #507687; /* Medium Blue for borders */
+  border-radius: 10px;
+}
+
+#about {
+  background-color: #e4e4e4;
+}
+
+#contact {
+  background-color: #d4d4d4;
+}
+
+/* Floating greeting animation */
+.greeting {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Start below the container */
+  animation: floatUp 1s forwards; /* Apply the animation */
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #384b70; /* Dark Blue for text */
   background-color: #fcfaee; /* Light Cream for the background */
 }
-
-/* Header styling */
-/* header .cover {
-  background-image: url('../img/whiplash.jpeg');
-  background-size: cover;  /*Make the image cover the entire container 
-  background-position: center; /* Center the image 
-  background-color: #628fa4; /*Medium Blue
-  color: #fcfaee; /* Light Cream 
-  padding: 5rem;
-  text-align: center;
-  opacity: 50%;
-} */
+html {
+  scroll-behavior: smooth; /* Smooth scroll for anchor links */
+}
 
 header .cover {
   background-image: url('../img/500dos.png');
@@ -213,6 +242,8 @@ footer {
   display: flex;
   transition: transform 0.5s ease-in-out;
   gap: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
   /* overflow: hidden; */
 }
 
@@ -240,7 +271,7 @@ footer {
 /* Navigation buttons */
 #prev, #next, #prevMovie, #nextMovie {
   position: absolute;
-  top: 60%; /* Align vertically */
+  top: 67%; /* Align vertically */
   transform: translateY(-50%); /* Adjust alignment */
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -255,11 +286,11 @@ footer {
 }
 
 #prev, #prevMovie {
-  left: 1rem;
+  left: 0.5rem;
 }
 
 #next, #nextMovie {
-  right: 1rem;
+  right: 0.5rem;
 }
 
 #prev:hover, #next:hover, #prevMovie:hover, #nextMovie:hover {
@@ -372,4 +403,232 @@ footer {
 .songList li:hover {
   background-color: #e0e0e0; /* Highlight on hover */
   cursor: pointer; /* Change cursor to pointer */
+}
+
+
+/* Large screens (desktops) */
+@media (min-width: 1350px) {
+  main {
+    flex-direction: row; /* Default layout */  
+    display: flex;
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+    gap: 1rem; /* Add spacing between flex items */
+  }
+  #content {  
+    flex: 3; /* Content takes up more space by default */
+    min-width: 65%; /* Prevent it from becoming too narrow */
+  }
+  aside {
+    flex: 1; /* Narrower sidebar */  
+    min-width: 25%; /* Prevent it from becoming too narrow */
+  }
+
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 1349px) and (min-width: 768px) {
+  main {
+    flex-direction: column; /* Stack main content vertically */
+    gap: 1rem; /* Add spacing between content and sidebar */
+  }
+
+  #content {
+    flex: 1; /* Full width */
+  }
+
+  aside {
+    flex: 1; /* Full width */
+    margin-top: 1rem; /* Add spacing */
+  }
+
+  /* Adjust slider buttons for visibility */
+  #prev, #next, #prevMovie, #nextMovie {
+    top: 50%; /* Ensure buttons are vertically centered */
+    transform: translateY(-50%);
+    display: block; /* Ensure buttons are visible */
+  }
+
+  #next, #nextMovie {
+    right: 10px; /* Keep the "Next" button aligned within view */
+  }
+
+  #prev, #prevMovie {
+    left: 10px; /* Keep the "Prev" button aligned within view */
+  }
+
+  .slides, .slidesmovie {
+    /* overflow: hidden; Prevent slider overflow issues */
+    padding: 0 2rem; /* Add padding for better spacing */
+  }
+
+  .vibeSlides, .movibeSlides {
+    /* overflow: hidden; Prevent slider overflow issues */
+    padding: 0 2rem; /* Add padding for better spacing */
+  }
+
+
+  .slide, .slidemovie, .vibeSlide, .movibeSlide  {
+    flex: 0 0 50%; /* Two items per row */
+    max-width: 50%; /* Ensure no overflow */
+  }
+
+}
+
+
+@media (min-width: 900px) and (max-width: 1349px) {
+  .slide, .slidemovie, .vibeSlide, .movibeSlide {
+    flex: 0 0 35%; /* Two items per row */
+    max-width: 50%; /* Ensure no overflow */
+  }
+
+  .slides, .slidesmovie, .vibeSlides, .movibeSlides {
+    padding-left: 5px;
+  }
+
+  #prev, #next, #prevMovie, #nextMovie {
+    top: 65%; /* Ensure buttons are vertically centered */
+    transform: translateY(-50%);
+    display: block; /* Ensure buttons are visible */
+  }
+
+  
+  #prev, #prevMovie{
+    left: 20px;
+  }
+
+  #next, #nextMovie{
+    right: 20px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .slide, .slidemovie, .vibeSlide, .movibeSlide{
+    flex: 0 0 110%;
+    text-align: center;
+  }
+
+  #prev, #next, #prevMovie, #nextMovie {
+    top: 35%; /* Ensure buttons are vertically centered */
+    transform: translateY(-50%);
+    display: block; /* Ensure buttons are visible */
+  }
+  
+  #prev, #prevMovie{
+    left: 30px;
+  }
+
+  #next, #nextMovie{
+    right: 30px;
+  }  
+}
+
+@media (min-width: 601px) and (max-width: 767px) {
+  .slide, .slidemovie, .vibeSlide, .movibeSlide  {
+    flex: 0 0 50%; /* Two items per row */
+    max-width: 50%; /* Ensure no overflow */
+  }
+
+}
+
+/* Small screens (phones) */
+@media(max-width: 767px) {
+  .cover img {
+    width: 200px;
+  }
+  
+  main {
+    flex-direction: column; /* Stack content */
+  }
+
+  #content, aside {
+    flex: 1; /* Full-width columns */
+  }
+
+  header .cover {
+    padding: 3rem; /* Reduce padding for smaller screens */
+  }
+
+  article img {
+    width: 100%; /* Full width for images */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  footer {
+    font-size: 0.8rem; /* Smaller footer text */
+  }
+
+  /* Adjust recommendation cards */
+  .cardContainer {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center the cards */
+  }
+
+  .recommendationCard {
+    width: 90%; /* Full width with some padding */
+    margin-bottom: 1rem; /* Add space between cards */
+  }
+
+  .recommendationCard img {
+    width: 100%; /* Full width of card */
+    height: auto; /* Maintain image aspect ratio */
+  }
+
+  
+  #prev, #next, #prevMovie, #nextMovie {
+    top: 70%; /* Ensure buttons are vertically centered */
+    transform: translateY(-50%);
+    display: block; /* Ensure buttons are visible */
+  }
+  
+  #prev, #prevMovie{
+    left: 30px;
+  }
+
+  #next, #nextMovie{
+    right: 30px;
+  }  
+}
+
+@media (max-width: 950px) {
+  /* Modal cards container */
+  #modalCards {
+    display: flex; /* Use flex layout */
+    flex-direction: column; /* Stack the cards vertically */
+    gap: 1rem; /* Add space between cards */
+    overflow-y: auto; /* Enable vertical scrolling */
+    position: relative; /* Ensure the cards move within the container */
+    padding-top: 1rem; /* Space at the top */
+    
+    max-height: 90vh; /* Limit the container height */
+    
+  }
+
+  /* Recommendation card styles */
+  .recommendationCard {
+    width: 100%; /* Ensure cards stretch to fit the container */
+    margin: 0 auto; /* Center the cards horizontally */
+    background: white; /* Optional: Ensure a solid background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    position: relative; /* Allow the card to move within the container */
+  }
+}
+
+
+.closeButton {
+  position: absolute; /* Position it relative to the modal */
+  top: 10px; /* Distance from the top of the modal */
+  right: 10px; /* Distance from the right edge of the modal */
+  background: transparent; /* Transparent background */
+  border: none; /* No border */
+  font-size: 5.5rem; /* Large font for visibility */
+  color: #507687; /* Match the modal's color scheme */
+  cursor: pointer; /* Pointer cursor for better UX */
+  z-index: 1001; /* Ensure it stays on top */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.closeButton:hover {
+  color: #b8001f; /* Change color on hover */
 }

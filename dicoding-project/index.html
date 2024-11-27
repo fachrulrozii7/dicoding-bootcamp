@@ -20,15 +20,20 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#welcome">Welcome</a></li>
-        <li><a href="#about">Music</a></li>
-        <li><a href="#contact">Movies</a></li>
+        <li><a href="#welcome" id="welcomeLink">Welcome</a></li>
+        <li><a href="#musicCorner">Music</a></li>
+        <li><a href="#movieZone">Movies</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <div id="content">
+      <section id="welcome" class="section">
+        <h1 class="greeting">Welcome to our website!</h1>
+        <p>Explore music and movies with us!</p>
+      </section>
+      
       <article id="musicCorner">
         <h2>Music Corner</h2>
         <p>
@@ -195,7 +200,7 @@
 
   <div id="recommendationModal" class="modal">
     <div class="modalContent">
-      <!-- <span id="closeModal">&times;</span> -->
+      <button id="closeModal" class="closeButton">&times;</button>  
       <h2 id="modalTitle"></h2>
       <div id="modalCards" class="recommendationCards"></div> <!-- Cards container -->
     </div>
@@ -204,6 +209,26 @@
 </body>
 </html>
 
+<script>
+  const modal2 = document.getElementById('recommendationModal');
+  const closeModal2 = document.getElementById('closeModal');
+
+  // Function to close the modal
+  const closeModalFunction = () => {
+    modal2.style.display = 'none';
+  };
+
+  // Add event listener for the close button
+  closeModal2.addEventListener('click', closeModalFunction);
+
+  // Optional: Close modal when clicking outside the content
+  window.addEventListener('click', (event) => {
+    if (event.target === modal2) {
+      closeModalFunction();
+    }
+});
+
+</script>
 
 <script>
   // Function to initialize a slider
@@ -242,81 +267,60 @@
       }
       updateSliderPosition();
     });
-
-    // Initialize position
-    updateSliderPosition();
   };
 
-  // Initialize sliders for both sections
-  initSlider('slides', 'slide', 'prev', 'next', 4); // Music Corner
-  initSlider('slidesmovie', 'slidemovie', 'prevMovie', 'nextMovie', 4); // Movie Zone
-  initSlider('vibeSlides', 'vibeSlide', 'prev', 'next', 4); // Music Corner
-  initSlider('movibeSlides', 'movibeSlide', 'prevMovie', 'nextMovie', 4); // Music Corner
+  // Track the current slider configuration
+  let currentSlides = null;
+
+  // Function to initialize sliders dynamically based on screen width
+  const setupSliders = () => {
+    let visibleSlides;
+
+    if (window.innerWidth <= 600) {
+      visibleSlides = 1;
+    } else if (window.innerWidth > 601 && window.innerWidth < 899) {
+      visibleSlides = 2;
+    } else if (window.innerWidth > 900 && window.innerWidth < 1349) {
+      visibleSlides = 3;
+    } else {
+      visibleSlides = 4;
+    }
+
+    // Reinitialize sliders only if the visible slides count changes
+    if (visibleSlides !== currentSlides) {
+      currentSlides = visibleSlides;
+      // Initialize sliders with the new configuration
+      initSlider('slides', 'slide', 'prev', 'next', visibleSlides); // Music Corner
+      initSlider('slidesmovie', 'slidemovie', 'prevMovie', 'nextMovie', visibleSlides); // Movie Zone
+      initSlider('vibeSlides', 'vibeSlide', 'prev', 'next', visibleSlides); // Music Corner
+      initSlider('movibeSlides', 'movibeSlide', 'prevMovie', 'nextMovie', visibleSlides); // Movie Zone
+    }
+  };
+  // Initial setup on page load
+  setupSliders();
+  // Update sliders on window resize
+  window.addEventListener('resize', setupSliders);
   
 </script>
 
 <script>
-  // Select all cards and the modal elements
-  /*
-  const allCards = document.querySelectorAll('.slide, .slidemovie, .vibeSlide, .movibeSlide'); // Adjust to target both music and movie cards
-  const modal = document.getElementById('recommendationModal');
-  const closeModal = document.getElementById('closeModal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalContent = document.getElementById('modalContent');
+  document.addEventListener('DOMContentLoaded', () => {
+  const welcomeLink = document.getElementById('welcomeLink');
+  const welcomeSection = document.getElementById('welcome');
 
-  // Card data for recommendations
-  const cardRecommendations = {
-    'pop punk': { title: 'Pop Punk Playlist', content: 'Try listening to Green Day, Blink-182, and Paramore!' },
-    'pop jazz': { title: 'Pop Jazz Playlist', content: 'Try listening to Norah Jones, Diana Krall, and Maliq & D’Essentials!' },
-    'pop rock': { title: 'Pop Rock Playlist', content: 'Try listening to Imagine Dragons, Coldplay, and OneRepublic!' },
-    'pop ori': { title: 'Pop Playlist', content: 'Try listening to Taylor Swift, Dua Lipa, and Olivia Rodrigo!' },
-    'pop ballad': { title: 'Pop Playlist', content: 'Try listening to Taylor Swift, Dua Lipa, and Olivia Rodrigo!' },
-    'energetic vibe': { title: 'Energetic Vibe', content: 'Try listening to Green Day, Blink-182, and Paramore!' },
-    'chill vibe': { title: 'Chill Vibe Playlist', content: 'Try listening to Norah Jones, Diana Krall, and Maliq & D’Essentials!' },
-    'romantic vibe': { title: 'Romantic Vibe Playlist', content: 'Try listening to Imagine Dragons, Coldplay, and OneRepublic!' },
-    'horror vibe': { title: 'Horror Vibe Playlist', content: 'Try listening to Taylor Swift, Dua Lipa, and Olivia Rodrigo!' },
-    'sad vibe': { title: 'Sad Vibe Playlist', content: 'Try listening to Taylor Swift, Dua Lipa, and Olivia Rodrigo!' },
-    'romcom': { title: 'Romantic Comedy', content: 'Recommended: The Notebook, Love Actually, and Crazy Rich Asians!' },
-    'musical': { title: 'Musical', content: 'Recommended: Interstellar, Inception, and Gravity!' },
-    'horror': { title: 'Horror', content: 'Recommended: Interstellar, Inception, and Gravity!' },
-    'thriller': { title: 'Thriller', content: 'Recommended: Interstellar, Inception, and Gravity!' },
-    'crime': { title: 'Crime', content: 'Recommended: Interstellar, Inception, and Gravity!' },
-    'summer': { title: 'Summer', content: 'Recommended: The Notebook, Love Actually, and Crazy Rich Asians!' },
-    'winter': { title: 'Winter', content: 'Recommended: Interstellar, Inception, and Gravity!' },
-    'sad': { title: 'Sad', content: 'Recommended: Interstellar, Inception, and Gravity!' },
-    'blue': { title: 'Blue', content: 'Recommended: Interstellar, Inception, and Gravity!' },
-    'happy': { title: 'Happy', content: 'Recommended: Interstellar, Inception, and Gravity!' },
-  };
+  // Add event listener to the "Welcome" link
+  welcomeLink.addEventListener('click', function (e) {
+    e.preventDefault();
 
-  // Open modal with specific recommendations
-  allCards.forEach(card => {
-    const image = card.querySelector('img'); // Select the image within the card
-    if (image) {
-      image.addEventListener('click', (event) => {
-        event.stopPropagation(); // Prevent the event from bubbling up
-        const altText = image.alt.toLowerCase(); // Use the `alt` attribute as the key
-        const recommendation = cardRecommendations[altText];
-        if (recommendation) {
-          modalTitle.textContent = recommendation.title;
-          modalContent.textContent = recommendation.content;
-          modal.style.display = 'block'; // Show the modal
-        }
-      });
-    }
-  });
-  
-  // Close modal when the close button is clicked
-  closeModal.addEventListener('click', () => {
-    modal.style.display = 'none'; // Hide the modal
-  });
+    // Show the "Welcome" section
+    welcomeSection.style.display = 'block';
 
-  // Close modal when clicking outside the modal content
-  window.addEventListener('click', event => {
-    if (event.target === modal) {
-      modal.style.display = 'none'; // Hide the modal
-    }
+    // Trigger animation by adding a class
+    setTimeout(() => {
+      welcomeSection.querySelector('.greeting').classList.add('animate');
+    }, 10); // Slight delay to trigger animation
   });
-*/
+});
 </script>
 
 <script>
@@ -324,7 +328,6 @@
 
   // Modal and its elements
   const modal = document.getElementById('recommendationModal');
-  const closeModal = document.getElementById('closeModal');
   const modalTitle = document.getElementById('modalTitle');
   const modalCards = document.getElementById('modalCards');
 
@@ -358,9 +361,9 @@
   'pop ballad': { 
     title: '', 
     items: [
-      { img: 'assets/img/norah.jpg', name: 'Bernadya', description: 'Smooth jazz vocals.',songs: ['Masa Sepi', 'Kata Mereka Ini Berlebihan', 'Kita Kubur Sampai Mati']},
-      { img: 'assets/img/diana.jpg', name: 'NIKI', description: 'Soulful piano jazz.',songs: ['Autumn', 'Oceans & Engines', 'On The Drive Home']},
-      { img: 'assets/img/maliq.jpg', name: 'Taylor Swift', description: 'Indonesian pop jazz.',songs: ['Dear John', 'This is Me Trying', 'All Too Well']},
+      { img: 'assets/img/bernadya2.jpeg', name: 'Bernadya', description: 'Smooth jazz vocals.',songs: ['Masa Sepi', 'Kata Mereka Ini Berlebihan', 'Kita Kubur Sampai Mati']},
+      { img: 'assets/img/niki.jpeg', name: 'NIKI', description: 'Soulful piano jazz.',songs: ['Autumn', 'Oceans & Engines', 'On The Drive Home']},
+      { img: 'assets/img/taylor.jpeg', name: 'Taylor Swift', description: 'Indonesian pop jazz.',songs: ['Dear John', 'This is Me Trying', 'All Too Well']},
     ]
   },
   
@@ -466,45 +469,44 @@
   'summer': { 
     title: ' ', 
     items: [
-      { img: 'assets/img/norah.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Filosofi Kopi', 'Surat Dari Praha','Rentang Kisah']},
-      { img: 'assets/img/diana.jpg', name: 'West', description: 'Soulful piano jazz.',songs: ['', 'The Intern', 'Clueless', 'Yes Day']},
-      { img: 'assets/img/maliq.jpg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Ditto', ' Architecture 101', 'Extreme Job','Miracle: Letter for President']},
+      { img: 'assets/img/praha.jpeg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Filosofi Kopi', 'Surat Dari Praha','Rentang Kisah']},
+      { img: 'assets/img/intern.jpg', name: 'West', description: 'Soulful piano jazz.',songs: ['The Intern', 'Clueless', 'Yes Day']},
+      { img: 'assets/img/ditto.jpeg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Ditto', ' Architecture 101', 'Extreme Job','Miracle: Letter for President']},
     ]
   },
 
   'christmas': { 
     title: ' ', 
     items: [
-      { img: 'assets/img/norah.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Pede', 'Seberapa Pantas', 'Trimakasih Bijaksana']},
-      { img: 'assets/img/diana.jpg', name: 'West', description: 'Soulful piano jazz.',songs: ['Arjuna', 'Pangeran Cinta', 'Cukup Siti Nurbaya']},
-      { img: 'assets/img/maliq.jpg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Always', 'Bed of Roses', 'Thank You for Loving Me']},
+      { img: 'assets/img/homealone.jpeg', name: 'West', description: 'Soulful piano jazz.',songs: ['Home Alone', 'The Polar Express', 'The Princess Switch']},
+      { img: 'assets/img/switch.jpg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Switch', 'Christmas Carol', 'The Tower']},
     ]
   },
 
   'school': { 
     title: ' ', 
     items: [
-      { img: 'assets/img/norah.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Remember When', 'Catatan Akhir Sekolah', 'Galih & Ratna']},
-      { img: 'assets/img/diana.jpg', name: 'West', description: 'Soulful piano jazz.',songs: ['Mean Girl', 'Metal Lords', 'Diary of a Wimpy Kid', 'School of Rock']},
-      { img: 'assets/img/maliq.jpg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Always', '20th Century Girl', 'Thank You for Loving Me']},
+      { img: 'assets/img/refrain.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Remember When', 'Catatan Akhir Sekolah', 'Galih & Ratna', 'Refrain']},
+      { img: 'assets/img/schoolofrock.jpeg', name: 'West', description: 'Soulful piano jazz.',songs: ['Mean Girl', 'Metal Lords', 'Diary of a Wimpy Kid', 'School of Rock']},
+      { img: 'assets/img/century.jpeg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['On Your Wedding Day', '20th Century Girl', 'Ditto']},
     ]
   },
 
   'nostalgic': { 
     title: ' ', 
     items: [
-      { img: 'assets/img/norah.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Eiffel Im in Love', 'Ada Apa Dengan Cinta', '30 Hari Mencari Cinta']},
-      { img: 'assets/img/diana.jpg', name: 'West', description: 'Soulful piano jazz.',songs: ['Uptown Girls', 'The Holiday', 'What a Girl Wants']},
-      { img: 'assets/img/maliq.jpg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Il Mare', 'My Little Bride', 'Sunny']},
+      { img: 'assets/img/eiffel.jpeg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['Eiffel Im in Love', 'Ada Apa Dengan Cinta', '30 Hari Mencari Cinta']},
+      { img: 'assets/img/theholiday.jpeg', name: 'West', description: 'Soulful piano jazz.',songs: ['Uptown Girls', 'The Holiday', 'What a Girl Wants']},
+      { img: 'assets/img/littlebride.jpeg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Il Mare', 'My Little Bride', 'Sunny']},
     ]
   },
 
   'heartwarming': { 
     title: ' ', 
     items: [
-      { img: 'assets/img/norah.jpg', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['5 cm', 'Cek Toko Sebelah 2', 'Laskar Pelangi']},
-      { img: 'assets/img/diana.jpg', name: 'West', description: 'Soulful piano jazz.',songs: ['Instant Family', 'Pangeran Cinta', 'Cukup Siti Nurbaya']},
-      { img: 'assets/img/maliq.jpg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Be With You', 'New Year Blues', 'Tune in For Love']},
+      { img: 'assets/img/5cm.webp', name: 'Indonesian', description: 'Smooth jazz vocals.',songs: ['5 cm', 'Cek Toko Sebelah 2', 'Laskar Pelangi']},
+      { img: 'assets/img/instant.png', name: 'West', description: 'Soulful piano jazz.',songs: ['Instant Family', 'My Girl', 'The Pursuit of Happiness']},
+      { img: 'assets/img/bewith.jpg', name: 'Korean', description: 'Indonesian pop jazz.',songs: ['Be With You', 'New Year Blues', 'Tune in For Love']},
     ]
   },
 
@@ -563,21 +565,21 @@ window.addEventListener('click', event => {
   // Switch between genres and vibes
   filterType.addEventListener('change', () => {
     if (filterType.value === 'genres') {
-      genresContainer.style.display = 'flex';
+      genresContainer.style.display = 'block';
       vibesContainer.style.display = 'none';
     } else if (filterType.value === 'vibes') {
       genresContainer.style.display = 'none';
-      vibesContainer.style.display = 'flex';
+      vibesContainer.style.display = 'block'; 
     }
   });
 
   mvfilterType.addEventListener('change', () => {
     if (mvfilterType.value === 'genres') {
-      mogenresContainer.style.display = 'flex';
+      mogenresContainer.style.display = 'block';
       movibesContainer.style.display = 'none';
     } else if (mvfilterType.value === 'vibes') {
       mogenresContainer.style.display = 'none';
-      movibesContainer.style.display = 'flex';
+      movibesContainer.style.display = 'block';
     }
   });
 
